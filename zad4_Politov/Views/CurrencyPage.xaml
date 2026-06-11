@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="zad4_Politov.Views.CurrencyPage"                          Title="Курсы валют"
+             Padding="20">
+
+    <StackLayout Spacing="20">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Центробанк РФ:" FontSize="Title" FontAttributes="Bold"/>
+            <DatePicker x:Name="DatePicker" Grid.Column="1" DateSelected="OnDateSelected" Format="dd/MM/yyyy" HorizontalOptions="End" VerticalOptions="Center"/>
+        </Grid>
+
+        <StackLayout Spacing="15">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="USD" FontSize="Large" FontAttributes="Bold"/>
+                <Label x:Name="UsdRateLabel" Text="72.000" FontSize="Large" 
+                           Grid.Column="1" HorizontalOptions="End"/>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="EUR" FontSize="Large" FontAttributes="Bold"/>
+                <Label x:Name="EurRateLabel" Text="83.000" FontSize="Large" 
+                           Grid.Column="1" HorizontalOptions="End"/>
+            </Grid>
+
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

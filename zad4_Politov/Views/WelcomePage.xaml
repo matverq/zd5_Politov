@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="zad4_Politov.Views.WelcomePage"             Title=""
+             BackgroundColor="Black">
+
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="300">
+
+        <Label Text="Welcome" FontSize="Title" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" Margin="0,0,0,30"/>
+
+        <Frame BackgroundColor="White" CornerRadius="5" Padding="0" HasShadow="False" Margin="0,0,0,20">
+
+            <StackLayout Spacing="0">
+
+                <Entry x:Name="UsernameEntry" Placeholder="Username" BackgroundColor="White" TextColor="Black" Margin="15,10,15,5"/>
+
+                <BoxView Color="#E0E0E0" HeightRequest="1"/>
+
+                <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" BackgroundColor="White" TextColor="Black" Margin="15,5,15,10"/>
+
+            </StackLayout>
+        </Frame>
+
+        <Button x:Name="SignInButton" Text="Sign In" Clicked="OnSignInClicked" BackgroundColor="#E53935" TextColor="White" FontAttributes="Bold" HeightRequest="45" CornerRadius="5" Margin="0,0,0,15"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0" Orientation="Horizontal" Spacing="5">
+                <CheckBox x:Name="RememberCheckBox" Color="White"/>
+                <Label Text="Remember me" TextColor="White" VerticalOptions="Center" FontSize="Small"/>
+            </StackLayout>
+
+            <Label Grid.Column="1" Text="I forgot!" TextColor="#E53935" FontSize="Small" VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnForgotTapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+
+    </StackLayout>
+</ContentPage>

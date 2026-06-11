@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="zad4_Politov.Views.CreditCalculatorPage"
+                           Title="Кредитный калькулятор"
+             Padding="20">
+
+    <StackLayout Spacing="15">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Сумма кредита:" VerticalOptions="Center" FontAttributes="Bold"/>
+            <Entry x:Name="AmountEntry" Grid.Column="1" Placeholder="Введите сумму" Keyboard="Numeric" HorizontalOptions="Fill"/>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Срок (месяцев):" VerticalOptions="Center" FontAttributes="Bold"/>
+            <Entry x:Name="TermEntry" Grid.Column="1" Placeholder="Введите срок" Keyboard="Numeric" HorizontalOptions="Fill"/>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Вид платежа:" VerticalOptions="Center" FontAttributes="Bold"/>
+            <Picker x:Name="PaymentTypePicker" Grid.Column="1" Title="Выберите тип">
+                <Picker.Items>
+                    <x:String>Аннуитетный</x:String>
+                    <x:String>Дифференцированный</x:String>
+                    <x:String>Фиксированный</x:String>
+                </Picker.Items>
+            </Picker>
+        </Grid>
+
+        <Label Text="Процентная ставка:" FontAttributes="Bold"/>
+
+        <Slider x:Name="RateSlider" Minimum="0" Maximum="50" Value="15" 
+                MinimumTrackColor="#3498db" MaximumTrackColor="#bdc3c7"
+                ThumbColor="#3498db"/>
+
+        <Label x:Name="RateLabel" Text="5%" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+
+        <Label x:Name="MonthlyPaymentLabel" Text="Ежемесячный платеж: ..." FontSize="Medium"/>
+        <Label x:Name="TotalPaymentLabel" Text="Общая сумма: ...." FontSize="Medium"/>
+        <Label x:Name="OverpaymentLabel" Text="Переплата: ...." FontSize="Medium"/>
+
+    </StackLayout>
+</ContentPage>
