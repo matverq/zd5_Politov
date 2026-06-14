@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "F0WdZG8JvOg=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Carbonium\\Downloads\\zd5_2_Politov\\zd5_2_Politov\\zd5_2_Politov.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Carbonium\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Carbonium\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Carbonium\\.nuget\\packages\\syncfusion.licensing\\30.2.4\\syncfusion.licensing.30.2.4.nupkg.sha512",
+    "C:\\Users\\Carbonium\\.nuget\\packages\\syncfusion.xamarin.core\\30.2.4\\syncfusion.xamarin.core.30.2.4.nupkg.sha512",
+    "C:\\Users\\Carbonium\\.nuget\\packages\\syncfusion.xamarin.sfcombobox\\30.2.4\\syncfusion.xamarin.sfcombobox.30.2.4.nupkg.sha512",
+    "C:\\Users\\Carbonium\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Carbonium\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\Carbonium\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,37 @@
+﻿/* Крупный заголовок успешного входа */
+.success-title {
+    color: #ffffff;
+    font-size: 26;
+    text-align: center;
+}
+
+/* Подзаголовок пользователя */
+.user-subtitle {
+    color: #ffffff;
+    font-size: 25;
+    text-align: center;
+}
+
+/* ПЕРВАЯ КНОПКА: Красная (как Sign in) */
+.capsule-red {
+    background-color: #e74c3c;
+    color: #ffffff;
+    height: 50;
+    width: 280;
+    border-radius: 4;
+    font-size: 18;
+    text-transform: none;
+}
+
+/* ВТОРАЯ КНОПКА: Белая с красным текстом и красной обводкой (стиль Sign in) */
+.capsule-outline {
+    background-color: #ffffff;
+    color: #e74c3c;
+    height: 50;
+    width: 280;
+    border-radius: 4;
+    font-size: 18;
+    text-transform: none;
+    border-width: 2;
+    border-color: #e74c3c;
+}

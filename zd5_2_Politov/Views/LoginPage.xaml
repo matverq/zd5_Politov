@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="zd5_2_Politov.Views.LoginPage"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#80000000">
+    
+    <!-- Подключение файла со стилями CSS -->
+
+    <ContentPage.Resources>
+        <StyleSheet Source="/Styles/login.css" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
+
+            <Frame StyleClass="login-card" HorizontalOptions="Center" 
+                   VerticalOptions="Center" HasShadow="True" CornerRadius="16" Padding="24">
+
+                <StackLayout>
+                    <Label Text="Welcome" StyleClass="title-label" FontAttributes="Bold" HorizontalOptions="Center" />
+
+                    <StackLayout StyleClass="input-group">
+                        <Entry x:Name="NameEntry" Placeholder="Name" StyleClass="login-entry" 
+                               PlaceholderColor="#888888" />
+
+                        <BoxView StyleClass="separator" />
+
+                        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" StyleClass="login-entry" 
+                               PlaceholderColor="#888888" />
+                    </StackLayout>
+
+                    <Button Text="Sign in" StyleClass="signin-btn" FontAttributes="Bold" Clicked="OnSignInClicked" />
+
+                    <Grid StyleClass="footer-grid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Orientation="Horizontal" Grid.Column="0" VerticalOptions="Center">
+                            <CheckBox StyleClass="remember-checkbox" />
+                            <Label Text="Remember me" StyleClass="footer-text" VerticalOptions="Center" />
+                        </StackLayout>
+
+                        <Label Text="I forgot!" Grid.Column="1" StyleClass="footer-link" VerticalOptions="Center" />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

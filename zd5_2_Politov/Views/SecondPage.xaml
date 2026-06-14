@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="zd5_2_Politov.Views.SecondPage"
+             BackgroundColor="#2c3036"
+             Title="Система">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="/Styles/second.css" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid Padding="30, 80, 30, 80" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Блок сверху -->
+            <StackLayout Grid.Row="0" VerticalOptions="Start">
+                <Label Text="Вход прошел успешно" 
+                       StyleClass="success-title" 
+                       FontAttributes="Italic"
+                       HorizontalOptions="Center" />
+
+            </StackLayout>
+
+            <!-- Блок в центре с отступом -->
+            <StackLayout Grid.Row="1" Spacing="35" VerticalOptions="Center">
+                <Label Text="Пользователь:" 
+                       StyleClass="user-subtitle" 
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" />
+
+                <Button x:Name="UsernameButton" 
+                        StyleClass="capsule-red" 
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center"
+                        Clicked="NameClicked" />
+            </StackLayout>
+
+            <!-- Блок снизу -->
+            <StackLayout Grid.Row="2" VerticalOptions="End">
+                <Button Text="Настроить интерфейс" 
+                        StyleClass="capsule-outline" 
+                        HorizontalOptions="Center"
+                        Clicked="OnGoToThirdPageClicked" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

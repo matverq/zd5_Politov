@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             x:Class="zd5_2_Politov.Views.ThirdPage"
+             x:Name="PageRoot"
+             BackgroundColor="AliceBlue"
+             Title="Система">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="/Styles/third.css" />
+    </ContentPage.Resources>
+
+    <!-- Главный контейнер-сетка: держит прокрутку и слой дропдауна -->
+    <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
+
+        <!-- СЛОЙ 1: ОСНОВНОЙ КОНТЕНТ (Скроллбар) -->
+        <ScrollView VerticalOptions="Fill" HorizontalOptions="Fill">
+            <Grid Padding="30,30,30,30" RowSpacing="40" VerticalOptions="Start">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- ЗОНА 1: ВЕРХ -->
+                <StackLayout Grid.Row="0" Spacing="20">
+                    <Label Text="Настройки интерфейса" StyleClass="page-title" HorizontalOptions="FillAndExpand" 
+                           HorizontalTextAlignment="Center" />
+
+                    <BoxView HeightRequest="95" Color="Transparent"/>
+
+                    <!-- ПОЛЗУНОК -->
+                    <StackLayout Spacing="10" HorizontalOptions="FillAndExpand">
+                        <Label Text="Яркость эффектов" StyleClass="slider-title" HorizontalOptions="Center"/>
+                        <Slider x:Name="EffectsSlider" 
+                            Minimum="0" 
+                            Maximum="100" 
+                            ThumbColor="#FF1493" 
+                            MinimumTrackColor="#FF1493"
+                            MaximumTrackColor="#E0E0E0"
+                            Margin="10,0"
+                            ValueChanged="OnSliderValueChanged" />
+                    </StackLayout>
+                </StackLayout>
+
+                <!-- ЗОНА 2: ЦЕНТР — Большой блок вывода -->
+                <Frame Grid.Row="1"
+                       StyleClass="output-box"
+                       Padding="25, 20, 25, 20" 
+                       HasShadow="True" 
+                       WidthRequest="280" 
+                       HeightRequest="160" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center">
+
+                    <Label x:Name="ResultLabel" 
+                           Text="Ожидание вашего выбора..." 
+                           StyleClass="result-text" 
+                           HorizontalTextAlignment="Center" />
+                </Frame>
+
+                <!-- ЗОНА 3: НИЗ -->
+                <StackLayout Grid.Row="2" Spacing="20" VerticalOptions="Start">
+                    <!-- Кнопки управления -->
+                    <StackLayout Spacing="15" HorizontalOptions="Center">
+                        <Button Text="BUTTON" StyleClass="capsule-outline" Clicked="OnStaticClicked" />
+                        <Button Text="STATIC" StyleClass="capsule-red" Clicked="OnButtonClicked" />
+                    </StackLayout>
+
+                    <!-- Свитчи -->
+                    <StackLayout Spacing="15" HorizontalOptions="Center">
+                        <Label Text="Дисплей | Настройки цвета и света" StyleClass="section-title" HorizontalOptions="Center" />
+
+                        <Grid ColumnSpacing="60" RowSpacing="15" HorizontalOptions="Center" Margin="0,0,40,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="80" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Switch x:Name="Switch1" Grid.Row="0" Grid.Column="0" OnColor="#FF4D6D" Scale="1.4" Toggled="OnSwitchToggled" />
+                            <Switch x:Name="Switch2" Grid.Row="0" Grid.Column="1" OnColor="#212529" Scale="1.4" Toggled="OnSwitchToggled" />
+
+                            <Switch x:Name="Switch3" Grid.Row="1" Grid.Column="0" OnColor="#FF4D6D" Scale="1.4" Toggled="OnSwitchToggled" />
+                            <Switch x:Name="Switch4" Grid.Row="1" Grid.Column="1" OnColor="#212529" Scale="1.4" Toggled="OnSwitchToggled" />
+
+                            <Switch x:Name="Switch5" Grid.Row="2" Grid.Column="0" OnColor="#FF4D6D" Scale="1.4" Toggled="OnSwitchToggled" />
+                            <Switch x:Name="Switch6" Grid.Row="2" Grid.Column="1" OnColor="#212529" Scale="1.4" Toggled="OnSwitchToggled" />
+                        </Grid>
+                    </StackLayout>
+
+                    <Button Text="СБРОС НАСТРОЕК" StyleClass="capsule-gray" Margin="0,10,0,0" Clicked="OnResetClicked" />
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+
+        <!-- СЛОЙ 2: ЗАДНИЙ ФОН ДЛЯ ЗАКРЫТИЯ (Перекрывает экран когда IsVisible="True") -->
+        <BoxView x:Name="BackgroundOverlay"
+                 Color="Transparent"
+                 IsVisible="False">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackgroundTapped" />
+            </BoxView.GestureRecognizers>
+        </BoxView>
+
+        <!-- СЛОЙ 3: ВЫПАДАЮЩИЙ СПИСОК (Лежит на самом верху, занимает только свою область) -->
+        <Grid VerticalOptions="Start" HorizontalOptions="Center" WidthRequest="280" Margin="0,85,0,0">
+            <StackLayout Spacing="10" VerticalOptions="Start">
+
+                <Label Text="Выберите желаемый тип дня" StyleClass="dropdown-title" HorizontalOptions="Center"/>
+
+                <!-- Красная округлая шапка -->
+                <Frame StyleClass="red-dropdown-header" CornerRadius="4" HasShadow="False">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="SelectedTariffLabel" Text="Какой сегодня у вас день?..." StyleClass="dropdown-header-text" Grid.Column="0" />
+
+                        <Label Text="▼" StyleClass="dropdown-arrow" Grid.Column="1" />
+                    </Grid>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnDropdownHeaderClicked" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <!-- Выпадающее белое меню -->
+                <Frame x:Name="DropdownMenuFrame" StyleClass="dropdown-menu-frame" IsVisible="False" Padding="0" HasShadow="True">
+                    <StackLayout Spacing="1" BackgroundColor="#E0E0E0">
+                        <Label x:Name="Lbl1" Text="Прекрасный день" StyleClass="dropdown-item">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnItemClicked" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label x:Name="Lbl2" Text="Хороший день" StyleClass="dropdown-item">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnItemClicked" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label x:Name="Lbl3" Text="Плохой день" StyleClass="dropdown-item">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnItemClicked" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label x:Name="Lbl4" Text="Ужасный день" StyleClass="dropdown-item">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnItemClicked" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>

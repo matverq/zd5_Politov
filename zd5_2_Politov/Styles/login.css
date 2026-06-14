@@ -1,0 +1,76 @@
+﻿/* Главный контейнер центрирует форму по вертикали и горизонтали */
+.main-container {
+    padding: 20;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Темная карточка формы */
+.login-card {
+    background-color: #2c3036;
+    width: 320;
+}
+
+/* Заголовок Welcome */
+.title-label {
+    color: #ffffff;
+    font-size: 20;
+    margin-bottom: 24;
+}
+
+/* Общий белый блок для Username и Password */
+.input-group {
+    background-color: #ffffff;
+    border-radius: 4;
+    padding-top: 4;
+    padding-bottom: 4;
+    margin-bottom: 24;
+}
+
+/* Поля ввода внутри белого блока */
+.login-entry {
+    background-color: transparent;
+    color: #333333;
+    height: 44;
+    margin-left: 12;
+    margin-right: 12;
+}
+
+/* Тонкая линия между полями ввода */
+.separator {
+    background-color: #e0e0e0;
+    height: 1;
+    margin-left: 12;
+    margin-right: 12;
+}
+
+/* Красная кнопка Sign In */
+.signin-btn {
+    background-color: #e74c3c;
+    color: #ffffff;
+    border-radius: 4;
+    height: 46;
+    font-size: 16;
+    text-transform: none;
+    margin-bottom: 16;
+}
+
+/* Сетка для чекбокса и ссылки */
+.footer-grid {
+    margin-top: 8;
+}
+
+.footer-text {
+    color: #bcbcbc;
+    font-size: 13;
+}
+
+.footer-link {
+    color: #ffffff;
+    font-size: 13;
+}
+
+.remember-checkbox {
+    color: #ffffff;
+    margin-right: 4;
+}
